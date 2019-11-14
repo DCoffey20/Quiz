@@ -10,11 +10,12 @@
     <!-- Bootstrap CSS -->
     <link <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
 </head>
 
 <body>
     <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
-        <a class="navbar-brand" href="#">View Highscores</a>
+        <a id="highScores" class="navbar-brand" href="#">View Highscores</a>
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
             aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation"></button>
         <div class="collapse navbar-collapse" id="collapsibleNavId">
@@ -23,7 +24,26 @@
     </nav>
     <div id="quiz"></div>
     <div class="text-center">
-    <button class="btn-primary" id="startQuiz">Start Quiz</button>
+        <button class="btn-primary my-5" id="startQuiz">Start Quiz</button>
+    </div>
+
+    <div id="questionsCard" class="justify-content-center border border-solid text-center">
+        <div class="mt-3">
+            <span id="title"></span>
+            <ul>
+                <li id="choices1" value="0" class="mt-2 btn btn-primary"></li>
+                <li id="choices2" value="1" class="mt-2 btn btn-primary"></li>
+                <li id="choices3" value="2" class="mt-2 btn btn-primary"></li>
+                <li id="choices4" value="3" class="mt-2 btn btn-primary"></li>
+            </ul>
+            <div id="answer">
+            </div>
+        </div>
+        <div id="gameOver">Game Over. Please Try Again</div>
+        <div id="yourScore">You did it</div>
+        <div id="highScoresDisplay">The High Scores are...
+            <div id="highScoreClose" class="row btn btn-primary">Close</div>
+        </div>
     </div>
     <div id="results"></div>
     <!-- Optional JavaScript -->
