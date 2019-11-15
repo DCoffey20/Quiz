@@ -15,8 +15,10 @@ let highScoresEl = document.getElementById("highScores");
 let highScoresDisplayEl = document.getElementById("highScoresDisplay");
 let highScoreCloseEl = document.getElementById("highScoreClose");
 let questionsCorrect = 0;
-// let startTime = 75;
-// let i = 0;
+let highScores;
+let score;
+let endScore;
+let highScoreName;
 
 choicesEl1.addEventListener("click", userChoice);
 choicesEl2.addEventListener("click", userChoice);
@@ -27,10 +29,11 @@ questionsCardEl.style.visibility = "hidden";
 gameOverEl.style.visibility = "hidden";
 yourScoreEl.style.visibility = "hidden";
 highScoresDisplayEl.style.visibility = "hidden";
+highScoreCloseEl.style.visibility = "hidden";
 
 function countdown() {
     startTime--;
-    timerEl.textContent = startTime;
+    timerEl.textContent = "Time Remaining: " + startTime;
     if (startTime === 0) {
         questionsCardEl.style.visibility = "hidden";
         gameOverEl.style.visibility = "visible";
@@ -54,25 +57,35 @@ startQuizEl.addEventListener("click", function () {
 function userChoice() {
     let userAnswer = parseInt(event.target.value);
 
-    console.log(questions[i].answer);
+    // console.log(questions[i].answer);
     if (questions[i].choices[userAnswer] === questions[i].answer) {
         questionsCorrect++;
         i++;
-        console.log(questionsCorrect);
+        // console.log(questionsCorrect);
     } else {
         startTime -= 15;
         i++;
     };
 
     if (i < 5) {
-        console.log(i);
+        // console.log(i);
         showQuestions();
     } else {
-        let score = startTime;
+        score = startTime;
         questionsCardEl.style.visibility = "hidden";
         yourScoreEl.textContent = "Your Score is " + score + "!";
         yourScoreEl.style.visibility = "visible";
         clearInterval(timer);
+        // endScore = localStorage.getItem("highScores");
+        highScoreName = localStorage.getItem("highScoresName");
+
+        if (score > localStorage.getItem("highScores")) {
+            let name = prompt("You Got the High Score!!! Enter your name.")
+            highScoresDisplayEl.textContent = localStorage.setItem("highScores", score);
+            highScoresDisplayEl.appendChild = localStorage.setItem("highScoresName", name)
+            // console.log(localStorage);
+            displayHighScores();
+        };
 
     }
 };
@@ -86,16 +99,26 @@ function showQuestions() {
     choicesEl4.textContent = (questions[i].choices[3]);
 };
 
-function displayHighScores () {
-highScoresDisplayEl.style.visibility = "visible";
-startQuizEl.style.visibility = "hidden";
-yourScoreEl.style.visibility = "hidden";
+function displayHighScores() {
+    highScoresDisplayEl.style.visibility = "visible";
+    startQuizEl.style.visibility = "hidden";
+    yourScoreEl.style.visibility = "hidden";
+    startTime = 75;
+    timerEl.textContent = "Time Remaining: " + startTime;
+    highScoresDisplayEl.textContent = "High Score: " + localStorage.getItem("highScoresName") + " - " + localStorage.getItem("highScores");
+    highScoreCloseEl.style.visibility = "visible";
+
+    // localStorage.setItem("highScores", )
 
 };
 
 highScoresEl.addEventListener("click", displayHighScores);
 
-highScoreCloseEl.addEventListener("click", function(){
+highScoreCloseEl.addEventListener("click", function () {
     highScoresDisplayEl.style.visibility = "hidden";
     startQuizEl.style.visibility = "visible";
+    startTime = 75;
+    highScoreCloseEl.style.visibility = "hidden";
 })
+
+
