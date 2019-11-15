@@ -12,4 +12,10 @@ The quiz opens with a start button. Click on the button to begin. User will be a
 
 # Screenshots
 
-![Hockey Quiz](./assets/ScreenShot1.PNG)
+![Hockey Quiz](./assets/ScreenShot1.PNG "Start Page")
+
+![Hockey Quiz](./assets/ScreenShot2.PNG "Taking Quiz")
+
+![Hockey Quiz](./assets/ScreenShot3.PNG "User Got High Score")
+
+![Hockey Quiz](./assets/ScreenShot4.PNG "High Score Storage")
