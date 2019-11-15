@@ -2,3 +2,18 @@ ul{
     list-style-type: none;
     padding-right: 0%;
 }
+
+body{
+    background-image: url(https://previews.123rf.com/images/marinat197/marinat1971708/marinat197170800002/83392513-vector-of-ice-hockey-rink-textures-blue-ice-ice-rink-vector-illustration-background-.jpg);
+}
+
+.btn-circle{
+    width: 150px; 
+    height: 150px; 
+    padding: 60px 1px; 
+    border-radius: 75px; 
+    font-size: 14px; 
+    text-align: center; 
+}
+
+

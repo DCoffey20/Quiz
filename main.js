@@ -38,6 +38,7 @@ function countdown() {
         questionsCardEl.style.visibility = "hidden";
         gameOverEl.style.visibility = "visible";
         clearInterval(timer);
+        startQuizEl.style.visibility = "visible";
     }
 };
 
